@@ -4,7 +4,8 @@ class RecipesController < ApplicationController
 
 
 	def index
-		@recipes = Recipe.all
+		@recipes = Recipe.paginate(page: params[:page], per_page: 5)
+        
 	end
 
 	def show
@@ -23,8 +24,8 @@ class RecipesController < ApplicationController
          redirect_to recipe_path(@recipe)
     	else
     		render 'new'
-    	end
-     end
+    	 end
+    end
 
     	def edit
       

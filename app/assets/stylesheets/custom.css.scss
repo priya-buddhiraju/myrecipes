@@ -1,4 +1,4 @@
-$navbar-default-bg: #073B15;
+$navbar-default-bg: #401014;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -23,17 +23,24 @@ $navbar-default-bg: #073B15;
 .description {
   margin-top: 0;
 }
+
+.jumbotron {
+ background-image: asset-url('background_pic.png');
+  background-size: cover;
+  height: 300px;
+}
 .well a {
-  color: #073B15;
+  color: #401014;
+  font-weight: bold
 }
 .chef_info {
   margin-top: 10px;
 }
 .colormatch a {
-  color: #073B15;
+  color: #401014;
 }
 .btn-xlarge {
-   background-color: #073B15;
+   background-color: #401014;
 }
 
 .recipe-actions {
@@ -41,4 +48,14 @@ $navbar-default-bg: #073B15;
   a {
     color: #fff;
   }
+  }
+.listing{
+  list-style: none;
+  padding-left: 0;
+}
+
+.chef-title{
+  color: #401014;
+  font-weight: bold;
+  font-size: 1.25em;
 }
