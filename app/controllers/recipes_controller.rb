@@ -60,7 +60,7 @@ end
    end
 
    def require_same_user
-      if current_chef != @recipe.chef
+      if current_chef != @recipe.chef && !current_chef.admin?
         flash[:danger] = "You can only edit or delete your own recipes"
         redirect_to recipes_path
       end  
