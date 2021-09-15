@@ -15,6 +15,7 @@ class ChefsListingTest < ActionDispatch::IntegrationTest
     get chefs_path
     assert_response :success
   end
+
  test "should get chefs listing" do
    get chefs_path
    assert_template 'chefs/index'
@@ -23,6 +24,7 @@ class ChefsListingTest < ActionDispatch::IntegrationTest
  end
 
  test "should delete chefs" do
+  sign_in_as @chef2, "password"
   get chefs_path
   assert_template 'chefs/index'
   assert_difference 'Chef.count' , -1 do
