@@ -31,7 +31,17 @@ $navbar-default-bg: #401014;
 }
 .well a {
   color: #401014;
-  font-weight: bold
+  font-weight: bold;
+
+}
+
+footer{
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #ooooo;
+  color: #777;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .chef_info {
   margin-top: 10px;
@@ -43,12 +53,20 @@ $navbar-default-bg: #401014;
    background-color: #401014;
 }
 
+
 .recipe-actions {
   padding-top: 5px;
   a {
     color: #fff;
   }
   }
+  .ingredient-actions {
+  
+  a {
+    color: #fff;
+  }
+  }
+
 .listing{
   list-style: none;
   padding-left: 0;
@@ -58,4 +76,7 @@ $navbar-default-bg: #401014;
   color: #401014;
   font-weight: bold;
   font-size: 1.25em;
+}
+.input_checkbox input {
+  width: auto !important;
 }
