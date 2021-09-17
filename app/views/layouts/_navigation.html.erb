@@ -16,8 +16,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to "Chefs", chefs_path %></li>
-        <li><%= link_to "All Recipes", recipes_path %></li>
+        <li class="navtext1"><%= link_to "Chefs", chefs_path %></li>
+        <% if !logged_in?%>
+        <li class="customcotext"><%= link_to "All Recipes", recipes_path %></li>
+        <%end%>
         <% if logged_in? %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
@@ -25,12 +27,11 @@
                                   Recipes <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><%= link_to "Create a new recipe", new_recipe_path %></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
+              
+              
               <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
+              <li><%= link_to "View all recipes", recipes_path %></li>
+              
             </ul>
           </li>
         <% end %>
@@ -40,10 +41,11 @@
             role="button" aria-haspopup="true" aria-expanded="false"> Ingredients <span class="caret">
             </span></a>
             <ul class="dropdown-menu">
-              <li><%= link_to "All Ingredients", ingredients_path %></li>
-              <% Ingredient.all.each do |ingredient| %>
+              
+              <% Ingredient.first(5).each do |ingredient| %>
                 <li><%= link_to ingredient.name.capitalize, ingredient_path(ingredient) %></li>
               <% end %>
+              <li><%= link_to "All Ingredients", ingredients_path %></li>
                <% if logged_in? && current_chef.admin?%>
               <li role="separator" class="divider"></li>
              
@@ -52,25 +54,20 @@
             </ul>
           </li>
       </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+      
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
             role="button" aria-haspopup="true" aria-expanded="false">
-            <%= current_chef.chefname.capitalize %>'s Profile  <%= "Admin" if current_chef.admin? %>
+            <%= current_chef.chefname.titleize %>'s Profile  <%= "Admin" if current_chef.admin? %>
             <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><%= link_to "View your profile", 
                                 chef_path(current_chef) %></li>
               <li><%= link_to "Edit your profile", 
                                 edit_chef_path(current_chef) %></li>
-              <li><a href="#">Something else here</a></li>
+              
               <li role="separator" class="divider"></li>
               <li><%= link_to "Log out", logout_path, 
                                       method: :delete %></li>

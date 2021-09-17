@@ -9,7 +9,10 @@ class CommentsController < ApplicationController
       flash[:success] = "Comment was created successfully"
       redirect_to recipe_path(@recipe)
     else
-      flash[:danger] = "Comment was not created"
+
+       @comment.errors.full_messages.each do |msg|
+        flash[:danger] = msg
+      end
       redirect_to :back
     end
   end

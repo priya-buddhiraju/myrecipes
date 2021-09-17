@@ -1,6 +1,6 @@
 class IngredientsController < ApplicationController
 
- before_action :set_ingredient , only:[:edit,:update , :show]
+ before_action :set_ingredient , only:[:edit,:update , :show , :destroy]
  before_action :require_admin , except: [:show , :index]
 
 	def new
@@ -38,6 +38,12 @@ class IngredientsController < ApplicationController
 		@ingredients = Ingredient.paginate(page: params[:page], per_page: 5)
 	end
 
+	def destroy
+		@ingredient.destroy
+     flash[:success] = "Ingredient is deleted successfully"
+     redirect_to ingredients_path
+	end
+
    private 
 
    def set_ingredient
@@ -51,7 +57,7 @@ class IngredientsController < ApplicationController
    def require_admin
    	if !logged_in? || (logged_in? && !current_chef.admin?)
    		flash[:danger] = "You cannot perform this action"
-   		redirect_to ingredient_path
+   		redirect_to ingredients_path
    	end
    end
 end

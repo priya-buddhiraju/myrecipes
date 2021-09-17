@@ -5,7 +5,7 @@
   <hr />
   <%= simple_format(@recipe.description) %>
   <% if @recipe.ingredients.any?%>
-  <p> Ingredients: <%= render @recipe.ingredients %></p>
+  <p class="ingredient-actions"> Ingredients: <%= render @recipe.ingredients %></p>
     <%end%>
   <hr />
   <div class="pull-right">
@@ -58,7 +58,7 @@
     </div>
   </div>
 <% end %>
-  <% if @recipe.comments !=0 %>
+  <% if @recipe.comments.count !=0 %>
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <h3>All Comments: </h3>

@@ -10,7 +10,28 @@ $navbar-default-bg: #401014;
   letter-spacing: -1px;
   font-weight: bold;
 }
-  
+ul.nav a:hover 
+{ color:  #FFFDD0 !important; 
+}
+
+.nav.navbar-nav li a {
+    color: #e6dcdd;
+    font-weight: bold;
+  font-size: 1.15em;
+}
+
+  .navbar-nav > li > .dropdown-menu { background-color: #ffff; }
+   .navbar-nav > li > .dropdown-menu a
+   {   color: black; 
+       font-weight: normal;
+       font-size: 1em; 
+   }
+
+   .dropdown-menu > li > a:hover {
+    background-image: none;
+    background-color: grey;
+}
+
 #logo:hover {
   color: #fff;
   text-decoration: none;
@@ -77,6 +98,12 @@ footer{
   font-weight: bold;
   font-size: 1.25em;
 }
+
 .input_checkbox input {
   width: auto !important;
 }
+
+.custom{
+  font-size: 20px;
+}
+

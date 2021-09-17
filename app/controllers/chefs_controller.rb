@@ -47,9 +47,11 @@ class ChefsController < ApplicationController
     	redirect_to chefs_path
     end
       end
+
 	private
+
 	 def chef_params
-	 	params.require(:chef).permit(:chefname, :email , :password,:passoword_confirmation)
+	 	params.require(:chef).permit(:chefname, :email , :password, :password_confirmation)
 	 end
 
 	 def set_chef

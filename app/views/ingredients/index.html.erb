@@ -2,6 +2,7 @@
 <div align="center">
 <%=will_paginate%>
 </div>
+<% if @ingredients.count!=0%>
 <div align="center">
 	 <% @ingredients.each do |ing| %>
 	<ul class="listing">
@@ -11,7 +12,9 @@
 				<li><small><%= pluralize(ing.recipes.count,"recipe") if ing.recipes %></small></li>
 				<% if logged_in? and current_chef.admin? %>
 				<li><%=link_to "Edit this ingredient" , edit_ingredient_path(ing) %></li>
-			               <%end%>
+				<li><%=link_to "Delete this ingredient" , ingredient_path(ing) , method: :delete,
+			    data: {confirm: "Are you sure you want to delete the ingredient?"}%></li>
+			   <%end%>
               </div>
           </div>
       </ul>
@@ -20,3 +23,6 @@
 <div align="center">
 <%=will_paginate%>
 </div>
+<%else%>
+<h4 align="center"> No Ingredients yet!</h4>
+<%end%>
